@@ -1,4 +1,4 @@
-FROM rocker/verse:base
+FROM shizidushu/rstudio-shiny:base
 
 
 ### http://blog.csdn.net/gxp/article/details/26563579
