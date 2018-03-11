@@ -1,7 +1,4 @@
-FROM rocker/verse
-
-## Add Shiny Server
-RUN export ADD=shiny && bash /etc/cont-init.d/add
+FROM shizidushu/rstudio-shiny:base
 
 
 ### http://blog.csdn.net/gxp/article/details/26563579
