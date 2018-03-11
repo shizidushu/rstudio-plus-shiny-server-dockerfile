@@ -16,14 +16,14 @@ add system package and sql server driver based on master branch
 docker pull shizidushu/rstudio-shiny:lite
 ```
 
-## normal
+## normal branch
 add r packages needed for deploy based on lite branch
 
 ```
 docker pull shizidushu/rstudio-shiny:normal
 ```
 
-## full
+## full branch
 add more r packages for testing purpose based on normal branch
 
 ```
