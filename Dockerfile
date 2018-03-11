@@ -1,5 +1,6 @@
 FROM shizidushu/rstudio-shiny:lite
 
-## Install basic r packages
-RUN install2.r --error --deps TRUE \
-cronR dygraphs ggthemes highcharter leaflet odbc pander plotly pool pryr RJDBC shinydashboard shinyFiles writexl
+# install basic r packages
+
+RUN Rscript -e "devtools::source_url('https://raw.githubusercontent.com/shizidushu/rstudio-shiny/normal/basic-r-packages.R')" \
+    && rm -rf /tmp/Rtmp*
