@@ -24,7 +24,6 @@ RUN echo "deb http://ftp2.cn.debian.org/debian stretch main non-free contrib" >>
         libxml2-dev \
         m4 \
         nginx \
-        texlive-extra-utils \
         unixodbc-dev \
     && git config --global core.quotepath false \
     && git config --global gui.encoding utf-8 \
