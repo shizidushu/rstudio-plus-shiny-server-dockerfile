@@ -1,9 +1,9 @@
 FROM shizidushu/rstudio-shiny:lite
 
+COPY ImageMagick-7.0.7-26.tar.xz /tmp
 
 # http://www.imagemagick.org/script/advanced-unix-installation.php#configure
 RUN cd /tmp \
-  && wget --no-verbose "http://imagemagick.org/download/releases/ImageMagick-7.0.7-26.tar.xz" -O ImageMagick.tar.xz\
   && tar xf ImageMagick.tar.xz \
   && cd ImageMagick \
   && ./configure \
