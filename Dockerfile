@@ -7,15 +7,10 @@ ENV MAGICK_VERSION 7.0.7-26
 
 # http://www.imagemagick.org/script/advanced-unix-installation.php#configure
 RUN apt-get update -y \
-  && apt-get install -y ghostscript gnupg2 \
-  && apt-get install -y --no-install-recommends \
-    libx11-dev libxext-dev zlib1g-dev libfreetype6-dev libxml2-dev libpng-dev libjpeg-dev libtiff-dev\
-  && gpg --keyserver pool.sks-keyservers.net --recv-keys 8277377A \
-  && apt-get remove -y imagemagick \
+  && apt-get install -y ghostscript \
+  && apt-get build-dep imagemagick \
   && cd /tmp \
   && curl -SLO "${MAGICK_URL}/ImageMagick-${MAGICK_VERSION}.tar.xz" \
-  && curl -SLO "${MAGICK_URL}/ImageMagick-${MAGICK_VERSION}.tar.xz.asc" \
-  && gpg --verify "ImageMagick-${MAGICK_VERSION}.tar.xz.asc" "ImageMagick-${MAGICK_VERSION}.tar.xz" \
   && tar xf "ImageMagick-${MAGICK_VERSION}.tar.xz" \
   && cd "ImageMagick-${MAGICK_VERSION}" \
   && ./configure \
