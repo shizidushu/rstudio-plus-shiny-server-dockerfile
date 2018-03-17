@@ -7,7 +7,7 @@ ENV MAGICK_VERSION 7.0.7-26
 
 # http://www.imagemagick.org/script/advanced-unix-installation.php#configure
 RUN apt-get update -y \
-  && apt-get install -y ghostscript gunpg \
+  && apt-get install -y ghostscript gnupg2 \
   && apt-get install -y --no-install-recommends \
     libx11-dev libxext-dev zlib1g-dev libpng12-dev libfreetype6-dev libxml2-dev libpng-dev libjpeg-dev libtiff-dev libopenjpeg-dev \
   && gpg --keyserver pool.sks-keyservers.net --recv-keys 8277377A \
