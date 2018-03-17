@@ -1,15 +1,11 @@
 FROM shizidushu/rstudio-shiny:lite
 
 
-ENV MAGICK_URL "http://imagemagick.org/download/releases"
-ENV MAGICK_VERSION 7.0.7-26
-
-
 # http://www.imagemagick.org/script/advanced-unix-installation.php#configure
 RUN cd /tmp \
-  && curl -SLO "${MAGICK_URL}/ImageMagick-${MAGICK_VERSION}.tar.xz" \
-  && tar xf "ImageMagick-${MAGICK_VERSION}.tar.xz" \
-  && cd "ImageMagick-${MAGICK_VERSION}" \
+  && wget --no-verbose "http://imagemagick.org/download/releases/ImageMagick-7.0.7-26.tar.xz" -O ImageMagick.tar.xz\
+  && tar xf ImageMagick.tar.xz \
+  && cd ImageMagick \
   && ./configure \
     --disable-static \
     --enable-shared \
