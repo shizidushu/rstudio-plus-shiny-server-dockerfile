@@ -6,9 +6,7 @@ ENV MAGICK_VERSION 7.0.7-26
 
 
 # http://www.imagemagick.org/script/advanced-unix-installation.php#configure
-RUN apt-get update -y \
-  && apt-get install -y ghostscript \
-  && cd /tmp \
+RUN cd /tmp \
   && curl -SLO "${MAGICK_URL}/ImageMagick-${MAGICK_VERSION}.tar.xz" \
   && tar xf "ImageMagick-${MAGICK_VERSION}.tar.xz" \
   && cd "ImageMagick-${MAGICK_VERSION}" \
