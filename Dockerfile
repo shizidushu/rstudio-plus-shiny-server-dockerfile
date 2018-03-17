@@ -9,7 +9,7 @@ ENV MAGICK_VERSION 7.0.7-26
 RUN apt-get update -y \
   && apt-get install -y ghostscript gnupg2 \
   && apt-get install -y --no-install-recommends \
-    libx11-dev libxext-dev zlib1g-dev libpng12-dev libfreetype6-dev libxml2-dev libpng-dev libjpeg-dev libtiff-dev libopenjpeg-dev \
+    libx11-dev libxext-dev zlib1g-dev libfreetype6-dev libxml2-dev libpng-dev libjpeg-dev libtiff-dev\
   && gpg --keyserver pool.sks-keyservers.net --recv-keys 8277377A \
   && apt-get remove -y imagemagick \
   && cd /tmp \
