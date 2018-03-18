@@ -74,6 +74,8 @@ stmaryrd
 sttools
 subfig
 subfigure
+svg
+svgcolor
 symbol
 tabu
 tex
@@ -92,6 +94,7 @@ vmargin
 wallpaper
 wrapfig
 xargs
+xetex
 xcolor
 xstring
 xwatermark
