@@ -1,4 +1,4 @@
-FROM shizidushu/rstudio-shiny:lite
+FROM shizidushu/rstudio-shiny:base
 
 # refer to https://hub.docker.com/r/starefossen/node-imagemagick/~/dockerfile/
 
@@ -21,7 +21,6 @@ RUN gpg --keyserver pool.sks-keyservers.net --recv-keys 8277377A \
     --enable-shared \
     --with-gslib \
     --with-jpeg \
-    --with-jp2 \
     --with-openjp2 \
     --with-png \
     --with-tiff \
