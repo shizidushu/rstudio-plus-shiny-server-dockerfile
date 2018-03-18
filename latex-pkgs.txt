@@ -14,6 +14,7 @@ colortbl
 comment
 courier
 ctex
+dvicopy
 dvips
 dvisvgm
 eepic
