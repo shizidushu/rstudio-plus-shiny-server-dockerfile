@@ -43,7 +43,7 @@ RUN echo "deb http://ftp2.cn.debian.org/debian stretch main non-free contrib" >>
     && curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > /etc/apt/sources.list.d/mssql-release.list \
     && apt-get update && ACCEPT_EULA=Y apt-get install -y msodbcsql mssql-tools \
     && echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc \
-    && /bin/bash -c "source ~/.bashrc"
+    && /bin/bash -c "source ~/.bashrc" \
     && git config --global core.quotepath false \
     && git config --global gui.encoding utf-8 \
     && git config --global i18n.commit.encoding utf-8 \
