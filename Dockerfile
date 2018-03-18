@@ -1,8 +1,21 @@
 FROM shizidushu/rstudio-shiny:base
 
+ENV MAGICK_URL "http://imagemagick.org/download/releases"
+ENV MAGICK_VERSION 7.0.7-26
+
+## Install linux packages
+
+### https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server    
+### https://github.com/Microsoft/mssql-docker/blob/master/linux/mssql-tools/Dockerfile
+## adding custom MS repository
+## install SQL Server drivers and tools
 
 ### http://blog.csdn.net/gxp/article/details/26563579
 # Fix package dependency & git chinese character path
+
+# refer to https://hub.docker.com/r/starefossen/node-imagemagick/~/dockerfile/
+# http://www.imagemagick.org/script/advanced-unix-installation.php#configure
+
 
 RUN echo "deb http://ftp2.cn.debian.org/debian stretch main non-free contrib" >> /etc/apt/sources.list \
     && apt-get update && apt-get -y install \
@@ -25,14 +38,40 @@ RUN echo "deb http://ftp2.cn.debian.org/debian stretch main non-free contrib" >>
         m4 \
         nginx \
         unixodbc-dev \
+        xz-utils \
+    && curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
+    && curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > /etc/apt/sources.list.d/mssql-release.list \
+    && apt-get update && ACCEPT_EULA=Y apt-get install -y msodbcsql mssql-tools \
+    && echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc \
+    && /bin/bash -c "source ~/.bashrc"
     && git config --global core.quotepath false \
     && git config --global gui.encoding utf-8 \
     && git config --global i18n.commit.encoding utf-8 \
     && git config --global i18n.logoutputencoding utf-8 \
     && export LESSCHARSET=utf-8 \
+    && gpg --keyserver pool.sks-keyservers.net --recv-keys 8277377A \
+    && cd /tmp \
+    && curl -SLO "${MAGICK_URL}/ImageMagick-${MAGICK_VERSION}.tar.xz" \
+    && curl -SLO "${MAGICK_URL}/ImageMagick-${MAGICK_VERSION}.tar.xz.asc" \
+    && gpg --verify "ImageMagick-${MAGICK_VERSION}.tar.xz.asc" "ImageMagick-${MAGICK_VERSION}.tar.xz" \
+    && tar xf "ImageMagick-${MAGICK_VERSION}.tar.xz" \
+    && cd "ImageMagick-${MAGICK_VERSION}" \
+    && ./configure \
+      --disable-static \
+      --enable-shared \
+      --with-gslib \
+      --with-jpeg \
+      --with-openjp2 \
+      --with-png \
+      --with-tiff \
+      --with-quantum-depth=8 \
+    && make \
+    && make install \
+    && ldconfig /usr/local/lib \
+    && cd / \
     && apt-get autoremove -y \
     && apt-get autoclean -y \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
 
@@ -47,16 +86,3 @@ RUN mkdir -p /etc/services.d/nginx \
     && echo '#!/bin/sh \
             \n exec cron -f' \
             > /etc/services.d/cron/run
-    
-
-### https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server    
-### https://github.com/Microsoft/mssql-docker/blob/master/linux/mssql-tools/Dockerfile
-# adding custom MS repository
-# install SQL Server drivers and tools
-
-RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
-  && curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > /etc/apt/sources.list.d/mssql-release.list \
-  && apt-get update && ACCEPT_EULA=Y apt-get install -y msodbcsql mssql-tools \
-  && echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc \
-  && /bin/bash -c "source ~/.bashrc"
-
