@@ -14,9 +14,7 @@ RUN echo "deb http://ftp2.cn.debian.org/debian stretch main non-free contrib" >>
         curl \
         debconf-utils \
         fonts-wqy-zenhei \
-        gnupg1 \
         gnupg2 \
-        imagemagick \
         libglu1-mesa-dev \
         libmariadb-client-lgpl-dev \
         libssh2-1-dev \
