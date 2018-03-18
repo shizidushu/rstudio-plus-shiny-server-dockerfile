@@ -14,18 +14,15 @@ colortbl
 comment
 courier
 ctex
-dvicopy
-dviljk
 dvips
 dvisvgm
 eepic
 enumitem
-environ
 eso-pic
 eurosym
 extsizes
-fandol
 fancyhdr
+fandol
 float
 floatrow
 fontaxes
@@ -84,7 +81,6 @@ threeparttable
 thumbpdf
 times
 titlesec
-trimspaces
 tufte-latex
 ucs
 ulem
@@ -94,7 +90,6 @@ vmargin
 wallpaper
 wrapfig
 xargs
-xetex
 xcolor
 xstring
 xwatermark
