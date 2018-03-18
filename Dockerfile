@@ -5,9 +5,9 @@ FROM shizidushu/rstudio-shiny:base
 ENV MAGICK_URL "http://imagemagick.org/download/releases"
 ENV MAGICK_VERSION 7.0.7-26
 
-RUN gpg --keyserver pool.sks-keyservers.net --recv-keys 8277377A \
-  && apt-get update -y \
-  && apt-get install -y curl xz-utils \
+RUN apt-get update -y \
+  && apt-get install -y curl gnupg2 xz-utils \
+  && gpg --keyserver pool.sks-keyservers.net --recv-keys 8277377A \
   && cd /tmp \
   && curl -SLO "${MAGICK_URL}/ImageMagick-${MAGICK_VERSION}.tar.xz" \
   && curl -SLO "${MAGICK_URL}/ImageMagick-${MAGICK_VERSION}.tar.xz.asc" \
