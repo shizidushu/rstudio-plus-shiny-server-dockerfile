@@ -15,6 +15,7 @@ comment
 courier
 ctex
 dvicopy
+dviljk
 dvips
 dvisvgm
 eepic
