@@ -1,11 +1,21 @@
 FROM shizidushu/rstudio-shiny:lite
 
-COPY ImageMagick-7.0.7-26.tar.xz /tmp
+# refer to https://hub.docker.com/r/starefossen/node-imagemagick/~/dockerfile/
 
+ENV MAGICK_URL "http://imagemagick.org/download/releases"
+ENV MAGICK_VERSION 7.0.7-26
+
+RUN gpg --keyserver pool.sks-keyservers.net --recv-keys 8277377A \
+  && apt-get update -y \
+  && apt-get install -y curl xz-utils \
+  && cd /tmp \
+  && curl -SLO "${MAGICK_URL}/ImageMagick-${MAGICK_VERSION}.tar.xz" \
+  && curl -SLO "${MAGICK_URL}/ImageMagick-${MAGICK_VERSION}.tar.xz.asc" \
+  && gpg --verify "ImageMagick-${MAGICK_VERSION}.tar.xz.asc" "ImageMagick-${MAGICK_VERSION}.tar.xz" \
+  && tar xf "ImageMagick-${MAGICK_VERSION}.tar.xz" \
+  
 # http://www.imagemagick.org/script/advanced-unix-installation.php#configure
-RUN cd /tmp \
-  && tar xf ImageMagick.tar.xz \
-  && cd ImageMagick \
+  && cd "ImageMagick-${MAGICK_VERSION}" \
   && ./configure \
     --disable-static \
     --enable-shared \
@@ -19,11 +29,7 @@ RUN cd /tmp \
   && make \
   && make install \
   && ldconfig /usr/local/lib \
+  && cd /
   && apt-get -y autoclean \
   && apt-get -y autoremove \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-# install basic r packages
-
-RUN Rscript -e "devtools::source_url('https://raw.githubusercontent.com/shizidushu/rstudio-shiny/normal/basic-r-packages.R')" \
-    && rm -rf /tmp/Rtmp*
