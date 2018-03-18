@@ -29,7 +29,7 @@ RUN gpg --keyserver pool.sks-keyservers.net --recv-keys 8277377A \
   && make \
   && make install \
   && ldconfig /usr/local/lib \
-  && cd /
+  && cd / \
   && apt-get -y autoclean \
   && apt-get -y autoremove \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
