@@ -26,9 +26,3 @@ devtools::install_github("rstudio/httpuv")
 
 ## ggtech cause rstudio server addins turns grey (2017.12.14)
 # devtools::install_github("ricardo-bion/ggtech", dependencies=TRUE)
-
-
-library(tinytex)
-
-## Install misssing latex package for texi2dvi
-tlmgr_install(c("ctex", "dvisvgm", "environ", "fandol", "mathtools", "pgf", "preview", "trimspaces", "ulem", "xcolor", "xecjk", "zhnumber"))
