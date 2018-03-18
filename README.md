@@ -10,7 +10,7 @@ docker pull shizidushu/rstudio-shiny:base
 ```
 
 ## lite branch
-add system package and sql server driver based on master branch
+add linux packages, install imagemagick and sql server driver based on master branch
 
 ```
 docker pull shizidushu/rstudio-shiny:lite
