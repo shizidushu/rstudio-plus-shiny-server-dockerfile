@@ -1,9 +1,5 @@
 FROM shizidushu/rstudio-shiny:base
 
-ENV MAGICK_URL "http://imagemagick.org/download/releases"
-ENV MAGICK_VERSION 7.0.7-26
-
-
 ## Install linux packages may depend on
 
 ## install SQL Server drivers and tools
@@ -50,10 +46,11 @@ RUN echo "deb http://ftp2.cn.debian.org/debian stretch main non-free contrib" >>
     && git config --global i18n.commit.encoding utf-8 \
     && git config --global i18n.logoutputencoding utf-8 \
     && export LESSCHARSET=utf-8 \
-    && cd /tmp \
-    && curl -SLO "${MAGICK_URL}/ImageMagick-${MAGICK_VERSION}.tar.xz" \
-    && tar xf "ImageMagick-${MAGICK_VERSION}.tar.xz" \
-    && cd "ImageMagick-${MAGICK_VERSION}" \
+    && mkdir /tmp/imk \
+    && cd /tmp/imk \
+    && wget --no-verbose "https://www.imagemagick.org/download/ImageMagick.tar.gz" \
+    && tar xvzf ImageMagick.tar.gz \
+    && cd */ \
     && ./configure \
       --disable-static \
       --enable-shared \
