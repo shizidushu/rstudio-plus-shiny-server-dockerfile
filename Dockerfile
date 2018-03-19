@@ -10,8 +10,10 @@ FROM shizidushu/rstudio-shiny:base
 ### http://blog.csdn.net/gxp/article/details/26563579
 
 ## Install imagemagick
-### refer to https://hub.docker.com/r/starefossen/node-imagemagick/~/dockerfile/
-### http://www.imagemagick.org/script/advanced-unix-installation.php#configure
+### 1. make a new directory
+### 2. download the latest source from https://www.imagemagick.org/download/ImageMagick.tar.gz
+### 3. open the only one folder. https://askubuntu.com/questions/454688/how-do-you-cd-into-the-first-available-folder-without-typing-out-the-name
+### 4. install
 
 
 RUN echo "deb http://ftp2.cn.debian.org/debian stretch main non-free contrib" >> /etc/apt/sources.list \
