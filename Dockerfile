@@ -7,6 +7,7 @@ ENV MAGICK_VERSION 7.0.7-26
 
 ### https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server    
 ### https://github.com/Microsoft/mssql-docker/blob/master/linux/mssql-tools/Dockerfile
+### https://download.microsoft.com/download/1/E/7/1E7B1181-3974-4B29-9A47-CC857B271AA2/Linux_Install_Instructions.pdf
 ## adding custom MS repository
 ## install SQL Server drivers and tools
 
@@ -37,11 +38,13 @@ RUN echo "deb http://ftp2.cn.debian.org/debian stretch main non-free contrib" >>
         libxml2-dev \
         m4 \
         nginx \
-        unixodbc-dev \
         xz-utils \
     && curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
     && curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > /etc/apt/sources.list.d/mssql-release.list \
-    && apt-get update && ACCEPT_EULA=Y apt-get install -y msodbcsql mssql-tools \
+    && apt-get update \
+    && ACCEPT_EULA=Y apt-get install msodbcsql17 \
+    && ACCEPT_EULA=Y apt-get install mssql-tools \
+    && apt-get install unixodbc-dev \
     && echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc \
     && /bin/bash -c "source ~/.bashrc" \
     && git config --global core.quotepath false \
