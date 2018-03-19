@@ -3,19 +3,19 @@ FROM shizidushu/rstudio-shiny:base
 ENV MAGICK_URL "http://imagemagick.org/download/releases"
 ENV MAGICK_VERSION 7.0.7-26
 
-## Install linux packages
 
+## Install linux packages may depend on
+
+## install SQL Server drivers and tools
 ### https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server    
 ### https://github.com/Microsoft/mssql-docker/blob/master/linux/mssql-tools/Dockerfile
-### https://download.microsoft.com/download/1/E/7/1E7B1181-3974-4B29-9A47-CC857B271AA2/Linux_Install_Instructions.pdf
-## adding custom MS repository
-## install SQL Server drivers and tools
 
+## Fix package dependency & git chinese character path
 ### http://blog.csdn.net/gxp/article/details/26563579
-# Fix package dependency & git chinese character path
 
-# refer to https://hub.docker.com/r/starefossen/node-imagemagick/~/dockerfile/
-# http://www.imagemagick.org/script/advanced-unix-installation.php#configure
+## Install imagemagick
+### refer to https://hub.docker.com/r/starefossen/node-imagemagick/~/dockerfile/
+### http://www.imagemagick.org/script/advanced-unix-installation.php#configure
 
 
 RUN echo "deb http://ftp2.cn.debian.org/debian stretch main non-free contrib" >> /etc/apt/sources.list \
