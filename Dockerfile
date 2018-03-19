@@ -28,6 +28,7 @@ RUN echo "deb http://ftp2.cn.debian.org/debian stretch main non-free contrib" >>
         curl \
         debconf-utils \
         fonts-wqy-zenhei \
+        gnupg1 \
         gnupg2 \
         libglu1-mesa-dev \
         libmariadb-client-lgpl-dev \
@@ -40,13 +41,14 @@ RUN echo "deb http://ftp2.cn.debian.org/debian stretch main non-free contrib" >>
         nginx \
         xz-utils \
     && curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
-    && curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > /etc/apt/sources.list.d/mssql-release.list \
+    && curl https://packages.microsoft.com/config/debian/9/prod.list > /etc/apt/sources.list.d/mssql-release.list \
     && apt-get update \
     && ACCEPT_EULA=Y apt-get -y install msodbcsql17 \
     && ACCEPT_EULA=Y apt-get -y install mssql-tools \
-    && apt-get -y install unixodbc-dev \
+    && echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile \
     && echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc \
     && /bin/bash -c "source ~/.bashrc" \
+    && apt-get -y install unixodbc-dev \
     && git config --global core.quotepath false \
     && git config --global gui.encoding utf-8 \
     && git config --global i18n.commit.encoding utf-8 \
