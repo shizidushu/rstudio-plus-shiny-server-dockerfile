@@ -50,11 +50,8 @@ RUN echo "deb http://ftp2.cn.debian.org/debian stretch main non-free contrib" >>
     && git config --global i18n.commit.encoding utf-8 \
     && git config --global i18n.logoutputencoding utf-8 \
     && export LESSCHARSET=utf-8 \
-    && gpg --keyserver pool.sks-keyservers.net --recv-keys 8277377A \
     && cd /tmp \
     && curl -SLO "${MAGICK_URL}/ImageMagick-${MAGICK_VERSION}.tar.xz" \
-    && curl -SLO "${MAGICK_URL}/ImageMagick-${MAGICK_VERSION}.tar.xz.asc" \
-    && gpg --verify "ImageMagick-${MAGICK_VERSION}.tar.xz.asc" "ImageMagick-${MAGICK_VERSION}.tar.xz" \
     && tar xf "ImageMagick-${MAGICK_VERSION}.tar.xz" \
     && cd "ImageMagick-${MAGICK_VERSION}" \
     && ./configure \
