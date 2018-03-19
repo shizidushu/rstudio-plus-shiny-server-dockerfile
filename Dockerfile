@@ -31,12 +31,8 @@ RUN echo "deb http://ftp2.cn.debian.org/debian stretch main non-free contrib" >>
         gnupg1 \
         gnupg2 \
         libglu1-mesa-dev \
-        libmariadb-client-lgpl-dev \
-        libssh2-1-dev \
         libtool \
         libudunits2-dev \
-        libx11-dev \
-        libxml2-dev \
         m4 \
         nginx \
         xz-utils \
