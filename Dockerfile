@@ -15,6 +15,7 @@ FROM shizidushu/rstudio-shiny:base
 ### 3. open the only one folder. https://askubuntu.com/questions/454688/how-do-you-cd-into-the-first-available-folder-without-typing-out-the-name
 ### 4. install
 
+## Add cron to s6-init system
 
 RUN echo "deb http://ftp2.cn.debian.org/debian stretch main non-free contrib" >> /etc/apt/sources.list \
     && apt-get update && apt-get -y install \
@@ -32,8 +33,11 @@ RUN echo "deb http://ftp2.cn.debian.org/debian stretch main non-free contrib" >>
         libtool \
         libudunits2-dev \
         m4 \
-        nginx \
         xz-utils \
+    && mkdir -p /etc/services.d/cron \
+    && echo '#!/bin/sh \
+            \n exec cron -f' \
+            > /etc/services.d/cron/run \
     && curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
     && curl https://packages.microsoft.com/config/debian/9/prod.list > /etc/apt/sources.list.d/mssql-release.list \
     && apt-get update \
@@ -69,17 +73,3 @@ RUN echo "deb http://ftp2.cn.debian.org/debian stretch main non-free contrib" >>
     && apt-get autoremove -y \
     && apt-get autoclean -y \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-
-
-# Add nginx to s6-init system
-# Add cron to s6-init system
-
-RUN mkdir -p /etc/services.d/nginx \
-    && echo '#!/usr/bin/execlineb -P \
-          \n nginx -g "daemon off;"' \
-          > /etc/services.d/nginx/run \
-    && mkdir -p /etc/services.d/cron \
-    && echo '#!/bin/sh \
-            \n exec cron -f' \
-            > /etc/services.d/cron/run
