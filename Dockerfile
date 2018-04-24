@@ -30,6 +30,7 @@ RUN echo "deb http://ftp2.cn.debian.org/debian stretch main non-free contrib" >>
         gnupg1 \
         gnupg2 \
         libglu1-mesa-dev \
+        libsecret-1-dev \
         libtool \
         libudunits2-dev \
         m4 \
