@@ -1,5 +1,6 @@
 list.of.packages <- c("Rcpp",
                       "devtools",
+                      "dbplyr",
                       "tidyverse",
                       "sjmisc",
                       "lubridate",
@@ -9,6 +10,7 @@ list.of.packages <- c("Rcpp",
                       "knitr",
                       "forcats",
                       "configr",
+                      "keyring",
                       "readr",
                       "readxl",
                       "writexl",
@@ -34,7 +36,10 @@ list.of.packages <- c("Rcpp",
                       "tinytex",
                       "pander",
                       "magrittr",
-                      "urltools"
+                      "urltools",
+                      "swagger",
+                      "config",
+                      "tidypredict"
                       )
 
 list.of.packages <- unique(list.of.packages)
@@ -51,5 +56,3 @@ devtools::install_github("rstudio/crosstalk")
 devtools::install_github("jcheng5/d3scatter")
 devtools::install_github("rstudio/leaflet")
 devtools::install_github('trestletech/plumber')
-
-
