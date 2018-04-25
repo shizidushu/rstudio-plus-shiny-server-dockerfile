@@ -1,4 +1,4 @@
-FROM shizidushu/rstudio-shiny:base
+FROM shizidushu/rstudio-plus-shiny-server:base
 
 ## Install linux packages may depend on
 
