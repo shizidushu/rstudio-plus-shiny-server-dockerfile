@@ -12,9 +12,12 @@ docker pull shizidushu/rstudio-shiny:base
 ## imagemagick branch
 install imagemagick based on master branch
 
+I struggled with ImageMagick a lot of days. It seems rmarkdown require it to convert pictures sometimes.
+
 ```
 docker pull shizidushu/rstudio-shiny:imagemagick
 ```
+
 
 ## lite branch
 add linux packages, install imagemagick and sql server driver based on master branch
@@ -28,13 +31,15 @@ add r packages needed for deploying based on lite branch. It also has the lastes
 
 ```
 docker pull shizidushu/rstudio-shiny:normal
-docker pull shizidushu/rstudio-shiny:latest
 ```
 
+
 ## full branch
-add more r packages for testing purpose based on normal branch
+Just add more r packages for testing purpose based on normal branch
 
 ```
 docker pull shizidushu/rstudio-shiny:full
 ```
+
+
 
