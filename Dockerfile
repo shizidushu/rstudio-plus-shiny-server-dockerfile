@@ -1,4 +1,4 @@
-FROM shizidushu/rstudio-shiny:lite
+FROM shizidushu/rstudio-plus-shiny-server:lite
 
 # install basic r packages
 
