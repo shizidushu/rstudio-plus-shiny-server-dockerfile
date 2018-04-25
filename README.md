@@ -27,7 +27,7 @@ docker pull shizidushu/rstudio-shiny:lite
 ```
 
 ## normal branch
-add r packages needed for deploying based on lite branch. It also has the lastest tag
+add r packages needed for deploying based on lite branch.
 
 ```
 docker pull shizidushu/rstudio-shiny:normal
