@@ -1,4 +1,4 @@
-FROM shizidushu/rstudio-shiny:normal
+FROM shizidushu/rstudio-plus-shiny-server:normal
 
 # install r packages collection
 
