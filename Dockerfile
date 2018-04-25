@@ -1,4 +1,4 @@
-FROM shizidushu/rstudio-shiny:base
+FROM shizidushu/rstudio-plus-shiny-server:base
 
 # refer to https://hub.docker.com/r/starefossen/node-imagemagick/~/dockerfile/
 
