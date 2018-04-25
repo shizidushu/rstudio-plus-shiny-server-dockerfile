@@ -1,5 +1,6 @@
 list.of.packages <- c("Rcpp",
                       "devtools",
+                      "glue",
                       "dbplyr",
                       "tidyverse",
                       "sjmisc",
