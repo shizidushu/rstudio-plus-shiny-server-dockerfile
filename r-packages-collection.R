@@ -81,7 +81,8 @@ list.of.packages <-
     "xlsx",
     "XML",
     "xtable",
-    "xts"
+    "xts",
+    "faraway"
   )
 
 list.of.packages <- unique(list.of.packages)
