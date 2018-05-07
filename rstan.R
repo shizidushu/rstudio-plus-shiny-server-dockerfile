@@ -17,6 +17,6 @@ cat(M)
 ## Building from source
 ### use 2 processes / 使用2个处理器线程 后续可更改
 
-# Sys.setenv(MAKEFLAGS = "-j2")
+Sys.setenv(MAKEFLAGS = "-j2")
 
-# install.packages("rstan", type = "source")
+install.packages("rstan", type = "source")
