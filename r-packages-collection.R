@@ -99,7 +99,7 @@ devtools::install_github("rstudio/shiny")
 #devtools::install_github('ricardo-bion/ggtech')
 devtools::install_github('rstudio/blogdown')
 devtools::install_github('rstudio/DT')
-
+devtools::install_github("klutometis/roxygen")
 
 devtools::install_github('shizidushu/RFunsInUse')
 
