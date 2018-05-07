@@ -65,7 +65,6 @@ list.of.packages <-
     "RJDBC",
     "RMySQL",
     "RODBC",
-    "rstan",
     "rticles",
     "rvest",
     "rworldmap",
