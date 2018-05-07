@@ -2,6 +2,7 @@ list.of.packages <-
   c(
     "addinslist",
     "bookdown",
+    "blogdown",
     "downloader",
     "inline",
     "Rcpp",
@@ -64,6 +65,7 @@ list.of.packages <-
     "RJDBC",
     "RMySQL",
     "RODBC",
+    "RSQLServer",
     "rticles",
     "rvest",
     "rworldmap",
@@ -94,7 +96,7 @@ if(length(new.packages)) install.packages(new.packages)
 
 devtools::install_github("rstudio/httpuv")
 devtools::install_github("rstudio/shiny")
-#devtools::install_github('ricardo-bion/ggtech')
+devtools::install_github("ricardo-bion/ggtech", dependencies=TRUE)
 devtools::install_github('rstudio/blogdown')
 devtools::install_github('rstudio/DT')
 devtools::install_github("klutometis/roxygen")
