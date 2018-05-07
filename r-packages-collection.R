@@ -6,7 +6,6 @@ list.of.packages <-
     "inline",
     "Rcpp",
     "RcppEigen",
-    "StanHeaders",
     "KernSmooth",
     "caret",
     "clValid",
