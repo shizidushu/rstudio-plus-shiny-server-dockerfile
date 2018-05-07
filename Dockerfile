@@ -6,7 +6,7 @@ FROM shizidushu/rstudio-plus-shiny-server:normal
 RUN mkdir -p $HOME/.R/ \
   && echo "CXXFLAGS=-O3 -mtune=native -march=native -Wno-unused-variable -Wno-unused-function  -Wno-macro-redefined \n" >> $HOME/.R/Makevars \
   && echo "CXXFLAGS += -Wno-ignored-attributes -Wno-deprecated-declarations \n" >> $HOME/.R/Makevars \
-  && Rscript -e "Sys.setenv(MAKEFLAGS = '-j2'); install.packages("rstan", type = "source")" \
+  && Rscript -e "install.packages("rstan", type = "source")" \
   && echo "options(mc.cores = parallel::detectCores())\n" >> /home/rstudio/.Rprofile \
   && Rscript -e "devtools::source_url('https://raw.githubusercontent.com/shizidushu/rstudio-plus-shiny-server-dockerfile/full/r-packages-collection.R')" \
   && echo "options(shiny.port = 7059)\n" >> /usr/local/lib/R/etc/Rprofile.site \
