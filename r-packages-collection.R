@@ -98,6 +98,9 @@ devtools::install_github("rstudio/httpuv")
 devtools::install_github("rstudio/shiny")
 #devtools::install_github('ricardo-bion/ggtech')
 devtools::install_github('rstudio/blogdown')
+devtools::install_github('rstudio/DT')
+
+
 devtools::install_github('shizidushu/RFunsInUse')
 
 blogdown::install_hugo()
