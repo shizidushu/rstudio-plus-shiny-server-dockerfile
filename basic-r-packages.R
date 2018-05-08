@@ -57,5 +57,7 @@ devtools::install_github("rstudio/crosstalk")
 devtools::install_github("jcheng5/d3scatter")
 devtools::install_github("rstudio/leaflet")
 devtools::install_github('trestletech/plumber')
+devtools::install_github("cosname/recharts")
+devtools::install_github("JohnCoene/echarts4r")
 
 devtools::install_github('shizidushu/RFunsInUse')
