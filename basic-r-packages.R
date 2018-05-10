@@ -49,6 +49,7 @@ new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"
 if(length(new.packages)) install.packages(new.packages, 
                                           repo = 'https://mirrors.tuna.tsinghua.edu.cn/CRAN/')
 
+devtools::install_github("tidyverse/ggplot2")
 devtools::install_github("ricardo-bion/ggtech", dependencies=TRUE)
 devtools::install_github("rstudio/httpuv")
 devtools::install_github("jbkunst/highcharter")
